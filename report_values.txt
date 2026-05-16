@@ -4,6 +4,13 @@ COMP 30044 CW2 Report Values
 Dataset shape
 (4424, 37)
 
+Missing values total
+0
+
+Duplicate rows
+Before removal: 0
+After removal: 0
+
 Target counts before filtering
 Target
 Graduate    2209
@@ -19,6 +26,14 @@ Class percentages after filtering
 Dropout: 39.15%
 Graduate: 60.85%
 
+Descriptive statistics values for report
+Admission grade minimum: 95.0
+Admission grade maximum: 190.0
+Admission grade mean: 126.97811934900544
+Age at enrollment minimum: 17
+Age at enrollment maximum: 70
+Age at enrollment mean: 23.265144665461122
+
 Pearson correlation
 Pearson r: 0.9163339784914017
 p-value: 0.0
@@ -31,6 +46,29 @@ Graduate               19.0            127.4                                  6.
 
 IQR outlier count for Age at enrollment
 389
+
+Target encoding mapping
+{'Dropout': 0, 'Graduate': 1}
+
+Train/test shapes
+X_train: (2904, 36)
+X_test: (726, 36)
+
+Scaling preview before
+      Admission grade  Age at enrollment  Previous qualification (grade)  Curricular units 1st sem (approved)  Curricular units 2nd sem (approved)
+244             150.0                 19                           150.0                                    6                                    6
+799             134.1                 49                           135.0                                    0                                    0
+644             115.1                 19                           121.0                                    6                                    6
+371             123.0                 18                           135.0                                    7                                    7
+2361            157.8                 44                           110.0                                    8                                    6
+
+Scaling preview after
+      Admission grade  Age at enrollment  Previous qualification (grade)  Curricular units 1st sem (approved)  Curricular units 2nd sem (approved)
+244          1.535387          -0.568104                        1.291460                             0.374510                             0.473143
+799          0.462492           3.239655                        0.152861                            -1.481425                            -1.426845
+644         -0.819584          -0.568104                       -0.909831                             0.374510                             0.473143
+371         -0.286511          -0.695030                        0.152861                             0.683833                             0.789808
+2361         2.061713           2.605028                       -1.744803                             0.993156                             0.473143
 
 Best Random Forest parameters
 {'max_depth': 10, 'min_samples_leaf': 2, 'min_samples_split': 5, 'n_estimators': 200}
@@ -49,6 +87,13 @@ Confusion matrix
 [[229  55]
  [ 11 431]]
 
+Confusion matrix explanation
+Class order: ['Dropout', 'Graduate']
+Actual Dropout predicted Dropout = 229
+Actual Dropout predicted Graduate = 55
+Actual Graduate predicted Dropout = 11
+Actual Graduate predicted Graduate = 431
+
 Classification report
               precision    recall  f1-score   support
 
@@ -58,6 +103,11 @@ Classification report
     accuracy                           0.91       726
    macro avg       0.92      0.89      0.90       726
 weighted avg       0.91      0.91      0.91       726
+
+Dropout-specific metrics
+Dropout precision: 0.9541666666666667
+Dropout recall: 0.8063380281690141
+Dropout f1-score: 0.8740458015267175
 
 Top 10 feature importances
                                Feature  Importance
