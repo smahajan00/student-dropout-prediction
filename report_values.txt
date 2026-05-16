@@ -1,0 +1,73 @@
+COMP 30044 CW2 Report Values
+================================================================================
+
+Dataset shape
+(4424, 37)
+
+Target counts before filtering
+Target
+Graduate    2209
+Dropout     1421
+Enrolled     794
+
+Target counts after filtering
+Target
+Graduate    2209
+Dropout     1421
+
+Class percentages after filtering
+Dropout: 39.15%
+Graduate: 60.85%
+
+Pearson correlation
+Pearson r: 0.9163339784914017
+p-value: 0.0
+
+Medians by Target
+          Age at enrollment  Admission grade  Curricular units 1st sem (approved)  Curricular units 2nd sem (approved)
+Target                                                                                                                
+Dropout                23.0            123.6                                  2.0                                  0.0
+Graduate               19.0            127.4                                  6.0                                  6.0
+
+IQR outlier count for Age at enrollment
+389
+
+Best Random Forest parameters
+{'max_depth': 10, 'min_samples_leaf': 2, 'min_samples_split': 5, 'n_estimators': 200}
+
+Model comparison table
+              Model  Accuracy  Precision   Recall  F1-score
+Logistic Regression  0.914601   0.902542 0.963801  0.932166
+Basic Random Forest  0.915978   0.897704 0.972851  0.933768
+  Gradient Boosting  0.911846   0.895397 0.968326  0.930435
+Tuned Random Forest  0.909091   0.886831 0.975113  0.928879
+
+Class order
+['Dropout', 'Graduate']
+
+Confusion matrix
+[[229  55]
+ [ 11 431]]
+
+Classification report
+              precision    recall  f1-score   support
+
+     Dropout       0.95      0.81      0.87       284
+    Graduate       0.89      0.98      0.93       442
+
+    accuracy                           0.91       726
+   macro avg       0.92      0.89      0.90       726
+weighted avg       0.91      0.91      0.91       726
+
+Top 10 feature importances
+                               Feature  Importance
+   Curricular units 2nd sem (approved)    0.270776
+   Curricular units 1st sem (approved)    0.141974
+      Curricular units 2nd sem (grade)    0.121648
+      Curricular units 1st sem (grade)    0.077024
+               Tuition fees up to date    0.065968
+                     Age at enrollment    0.029510
+Curricular units 2nd sem (evaluations)    0.027893
+                                Course    0.023752
+Curricular units 1st sem (evaluations)    0.023336
+   Curricular units 2nd sem (enrolled)    0.021163
